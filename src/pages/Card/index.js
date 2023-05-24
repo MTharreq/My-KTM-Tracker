@@ -1,15 +1,18 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { Image, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Active from './active'
+import Blocked from './blocked'
 
 const Stack = createNativeStackNavigator();
 
 function Card() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{fontSize: 24}}>Card</Text>
-    </View>
+    <Stack.Navigator initialRouteName='Active'>
+      <Stack.Screen name="Active" component={Active} options={{ headerShown: false }} />
+      <Stack.Screen name="Blocked" component={Blocked} options={{ headerShown: false }} />
+    </Stack.Navigator>
   );
 }
 
