@@ -12,7 +12,7 @@ import {
   View,
   StatusBar,
 } from 'react-native'; 
-import { PRIMARY50, NEUTRAL20 } from '../../styles/color';
+import { PRIMARY50, NEUTRAL20, NEUTRAL50 } from '../../styles/color';
 
 
 export default function Login({navigation}) {
@@ -24,11 +24,11 @@ export default function Login({navigation}) {
     <KeyboardAvoidingView
       behavior={Platform.OS === 'android' ? 'padding' : 'height'}
       style={styles.container}
-      keyboardVerticalOffset={-250}>
+      keyboardVerticalOffset={-200}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           <View style={styles.containerImg} >
-            <Image style={{width: 150, height: '20%', resizeMode: 'contain', marginBottom: 30}}
+            <Image style={{width: '40%', height: '20%', resizeMode: 'contain', marginBottom: 30, marginTop: 30,}}
               source={require('../../assets/images/logo.png')}
             />
             <Image style={{width: '80%', height: '65%',  resizeMode: 'contain', backgroundColor: 'white',}}
@@ -90,14 +90,16 @@ const styles = StyleSheet.create({
   },
   containerContent: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    // backgroundColor:'yellow',
   },
   containerImg: {
-    flex: 1,
+    flex: 1.3,
     paddingTop: StatusBar.currentHeight,
     justifyContent: 'center',
     alignItems: 'center',
+    // backgroundColor:'blue',
   },
   
   //h
@@ -113,13 +115,17 @@ const styles = StyleSheet.create({
   // i
   inner: {
     flex: 1,
-    justifyContent: 'space-around',
+    // justifyContent: 'space-around',
+    justifyContent: 'center',
+    // backgroundColor: 'blue'
+
   },
   input: {
+    backgroundColor: 'white',
     width: '80%',
     padding: 10,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: NEUTRAL50,
     marginBottom: 10,
     borderRadius: 8,
     fontFamily: 'PlusJakartaSans-Regular',
