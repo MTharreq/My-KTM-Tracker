@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
 
   //h
   h1: {
-    color: '#372F2F',
+    color: 'black',
     fontSize: 22,
     fontWeight: '500',
   },

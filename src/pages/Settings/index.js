@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
 
   },
   h2: {
-    color: '#645D5D',
+    color: 'black',
     fontSize: 20,
     fontWeight: '500',
   },

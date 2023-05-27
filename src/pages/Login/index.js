@@ -1,6 +1,5 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { 
-  Button,
   Image,
   Keyboard,
   KeyboardAvoidingView,
@@ -13,20 +12,13 @@ import {
   View,
   StatusBar,
 } from 'react-native'; 
-import { PRIMARY_COLOR } from '../../styles/color';
-// import * as SplashScreen from 'expo-splash-screen';
+import { PRIMARY50, NEUTRAL20 } from '../../styles/color';
 
-{/* const Login = ({ navigation }) => { */}
-// SplashScreen.preventAutoHideAsync();
 
 export default function Login({navigation}) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
-  const handleLogin = () => {
-    // handle login logic here
-  }
 
   return (
     <KeyboardAvoidingView
@@ -35,7 +27,7 @@ export default function Login({navigation}) {
       keyboardVerticalOffset={-250}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
-          <View style={styles.imgContainer} >
+          <View style={styles.containerImg} >
             <Image style={{width: 150, height: '20%', resizeMode: 'contain', marginBottom: 30}}
               source={require('../../assets/images/logo.png')}
             />
@@ -44,31 +36,23 @@ export default function Login({navigation}) {
             />
           </View>
 
-          <View style={styles.contentContainer}>
+          <View style={styles.containerContent}>
             <Text style={styles.h1}>SSO Login</Text>
             <TextInput
               style={styles.input}
               placeholder="SSO Username"
+              placeholderTextColor="#B1A9A9" 
               onChangeText={setUsername}
               value={username}
             />
             <TextInput
               style={styles.input}
               placeholder="Password"
+              placeholderTextColor="#B1A9A9" 
               onChangeText={setPassword}
               value={password}
               secureTextEntry={true}
             />
-            {/*
-            <View style={styles.remember}>
-
-              <View style={styles.checkboxContainer}>
-                <TouchableOpacity style={styles.checkBox} onPress={handleLogin}></TouchableOpacity>
-              <Text style={styles.h2}>Remember me</Text>
-              </View>
-              <Text style={styles.h2}>Forgot Password?</Text>
-            </View>
-            */}
             <TouchableOpacity style={styles.button} onPress={() =>
               navigation.navigate('MainApp')
             }>
@@ -83,22 +67,53 @@ export default function Login({navigation}) {
 
 
 const styles = StyleSheet.create({
+  // b
+  button: {
+    marginTop: 30,
+    width: '80%',
+    height: 40,
+    backgroundColor: PRIMARY50,
+    borderRadius: 20,
+    padding: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 14,
+    textAlign: 'center',
+    fontFamily: 'PlusJakartaSans-SemiBold',
+  },
+  
+  // c
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  imgContainer: {
+  containerContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  containerImg: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  contentContainer: {
+  
+  //h
+  h1: {
+    width: '80%',
+    color: '#372F2F',
+    fontSize: 22,
+    marginBottom: 12,
+    fontFamily: "PlusJakartaSans-Bold",
+    color: NEUTRAL20,
+  },
+  
+  // i
+  inner: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    // paddingBottom: 150,
-
+    justifyContent: 'space-around',
   },
   input: {
     width: '80%',
@@ -107,51 +122,6 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     marginBottom: 10,
     borderRadius: 8,
-    fontFamily: 'PlusJakartaSans_400Regular',
-  },
-  button: {
-    marginTop: 30,
-    width: '80%',
-    height: 40,
-    backgroundColor: PRIMARY_COLOR,
-    borderRadius: 20,
-    padding: 10,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 14,
-    textAlign: 'center',
-    fontFamily: 'PlusJakartaSans_600SemiBold',
-  },
-  h1: {
-    width: '80%',
-    color: '#372F2F',
-    fontSize: 22,
-    // fontWeight: 'bold',
-    marginBottom: 12,
-    fontFamily: "PlusJakartaSans_700Bold",
-  },
-  // remember: {
-  //   width: '80%',
-  //   flexDirection: 'row',
-  //   justifyContent: 'space-between',
-  // },
-  // checkBox: {
-  //   width: 24,
-  //   height: 24,
-  //   bottom: 2,
-  //   marginRight: 4,
-  //   borderWidth: 2,
-  //   borderRadius: 5,
-  //   borderColor: '#EA5455',
-  // },
-  // checkboxContainer: {
-  //   flexDirection: 'row',
-  // },
-  inner: {
-    flex: 1,
-    justifyContent: 'space-around',
+    fontFamily: 'PlusJakartaSans-Regular',
   },
 });
-
-{/* export default Login;  */}

@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Image } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { PRIMARY_COLOR, NEUTRAL30 } from '../styles/color';
+import { PRIMARY50, NEUTRAL30 } from '../styles/color';
 import { Login, Card, History, Settings, Splash } from '../pages'
-import { BottomNavigation } from '../components'
+// import { BottomNavigation } from '../components'
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,15 +45,13 @@ function MainApp() {
         );
       },
 
-      tabBarActiveTintColor: PRIMARY_COLOR,
+      tabBarActiveTintColor: PRIMARY50,
       tabBarInactiveTintColor: NEUTRAL30,
       tabBarStyle:{
-        // backgroundColor: 'blue',
         height: '7%',
         paddingTop: 4,
       },
       tabBarLabelStyle:{
-        // backgroundColor: 'white',
         fontSize: 12,
         paddingBottom: 4,
         paddingTop: 2,
