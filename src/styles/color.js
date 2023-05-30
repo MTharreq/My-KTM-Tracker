@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-
 // PRIMARY
 export const PRIMARY50 = '#EA5455'
 
@@ -15,17 +13,8 @@ export const NEUTRAL30 = '#4C4646'
 export const NEUTRAL40 = '#645D5D'
 export const NEUTRAL50 = '#7D7676'
 export const NEUTRAL70 = '#B1A9A9'
+export const NEUTRAL80 = '#CDC5C5'
+export const NEUTRAL95 = '#F7EFEF'
 
-
-const styles = StyleSheet.create({
-box: {
-    width: '80%',
-    height: 150,
-    backgroundColor: 'red',
-    alignSelf: 'center',
-    borderRadius: 9
-  }
-   
-});
-
-export { styles }
+// GREEN
+export const GREEN = '#277237'

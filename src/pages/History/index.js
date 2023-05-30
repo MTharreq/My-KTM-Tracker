@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     paddingHorizontal: 20,
-    paddingTop: StatusBar.currentHeight,
+    // paddingTop: StatusBar.currentHeight,
   },
 
   //h
@@ -160,6 +160,7 @@ const styles = StyleSheet.create({
 
   //t
   title: {
+    color: 'black',
     fontSize: 16,
     fontWeight: '500',
     paddingLeft: 8,

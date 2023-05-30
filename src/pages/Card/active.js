@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import {Alert, ScrollView, StyleSheet, Text, View, StatusBar, Image, TouchableOpacity} from 'react-native';
+import { PRIMARY50, NEUTRAL20, NEUTRAL50, NEUTRAL80, GREEN } from '../../styles/color';
+// import { h1 } from '../../styles/style'
 
 const Active = ({ navigation }) => {
   const createTwoButtonAlert = () =>
@@ -14,65 +16,68 @@ const Active = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+      <StatusBar
+        barStyle='dark-content'
+        backgroundColor={"transparent"}
+        translucent
+      />
+      
+      {/* HEADER */}
       <View style={styles.header}>
         <Text style={styles.h1}>Your RFID Card</Text>
       </View>
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.cardImgContainer}>
+
+      {/* CONTENT */}
+      <ScrollView style={styles.content}>
+
+        {/* CONTAINER IMAGE */}
+        <View style={styles.containerCardImg}>
           <Image style={styles.cardImg}
             source={require('../../assets/images/ktm-active-blank.png')}
           />
           <Image style={styles.cardImgPerson}
             source={require('../../assets/images/Muhammad-Hilmy-Aziz.png')}
           />
-          <View style={styles.cardContainerText}>
+          <View style={styles.containerCardText}>
             <Text style={[styles.cardText, {fontSize: 14}]}>MUH. HILMY AZIZ</Text>
             <Text style={styles.cardText}>1103201244</Text>
             <Text style={[styles.cardText, {paddingTop: 6}]}>S1 Teknik Komputer</Text>
           </View>
         </View>
 
-        <View style={styles.section}>
-          <View style={styles.sectionLeft}>
-            <Text style={styles.title}>Status</Text>
+        {/* CONTAINER SECTION */}
+        <View style={styles.containerSection}>
+          <View style={styles.section}>
+            <Text style={styles.h2}>Status</Text>
+            <Text style={[styles.h2, { color: GREEN, }]}>Active</Text>
           </View>
-          <View style={styles.sectionRight}>
-            <Text style={styles.subtitleActive}>Active</Text>
-          </View>
-        </View>
-        <View style={styles.divider}></View>
 
-        <View style={styles.section}>
-          <View style={styles.sectionLeft}>
-            <Text style={styles.title}>Last Place</Text>
-          </View>
-          <View style={styles.sectionRight}>
+          <View style={styles.divider}></View>
+
+          <View style={styles.section}>
+            <Text style={styles.h2}>Last Place</Text>
             <Text style={styles.subtitle}>Gedung TULT</Text>
           </View>
-        </View>
-        <View style={styles.divider}></View>
 
-        <View style={styles.section}>
-          <View style={styles.sectionLeft}>
-            <Text style={styles.title}>Last Taping</Text>
-          </View>
-          <View style={styles.sectionRight}>
+          <View style={styles.divider}></View>
+
+          <View style={styles.section}>
+            <Text style={styles.h2}>Last Taping</Text>
             <Text style={styles.subtitle}>19:30</Text>
           </View>
-        </View>
-        <View style={styles.divider}></View>
 
-        <View style={styles.section}>
-          <View style={styles.sectionLeft}>
-            <Text style={styles.title}>Lost your card?</Text>
-          </View>
-          <View style={styles.sectionRight}>
+          <View style={styles.divider}></View>
+
+          <View style={styles.section}>
+            <Text style={styles.h2}>Lost your card?</Text>
             <TouchableOpacity style={styles.button} onPress={createTwoButtonAlert}>
-              <Text style={styles.subtitleBlock}>Block it now</Text>
+              <Text style={[styles.h2, { color: PRIMARY50, }]}>Block it now</Text>
             </TouchableOpacity>
           </View>
+
+          <View style={styles.divider}></View>
+        
         </View>
-        <View style={styles.divider}></View>
 
       </ScrollView>
     </View>
@@ -83,19 +88,14 @@ export default Active;
 
 const styles = StyleSheet.create({
   //c
-  cardContainerText: {
-    top: 215,
-    width: '100%',
-    // backgroundColor: 'grey',
-    position: 'absolute',
-    justifyContent: 'center',
-  },
   cardText: {
     fontSize: 12,
     color: 'white',
     alignSelf: 'center',
+    fontFamily: 'PlusJakartaSans-Regular',
   },
   cardImg: {
+    // backgroundColor: 'red',
     alignSelf: 'center',
     height: 265,
     width: 348,
@@ -111,36 +111,59 @@ const styles = StyleSheet.create({
     width: 450/3,
     // resizeMode: 'contain',
   },
-  cardImgContainer: {
-    justifyContent: 'center',
-    paddingVertical: 64,
-    // backgroundColor: 'grey',
-  },
   container: {
     flex: 1,
     backgroundColor: 'white',
     paddingHorizontal: 20,
-    paddingTop: StatusBar.currentHeight,
+    // paddingTop: StatusBar.currentHeight,
+  },
+  containerCardImg: {
+    flex: 1,
+    // justifyContent: 'center',
+    paddingVertical: 64,
+    // backgroundColor: 'blue',
+  },
+  containerSection: {
+    flex: 1,
+    // justifyContent: 'center',
+    // backgroundColor: 'red',
+  },
+  containerCardText: {
+    bottom: '45%',
+    // height: '100%',
+    width: '100%',
+    // backgroundColor: 'grey',
+    position: 'absolute',
+    justifyContent: 'center',
+  },
+  content: {
+    flex: 1,
+    // backgroundColor:'yellow',
   },
 
   //d
   divider: {
-    marginVertical: 20,
+    marginVertical: '7%',
     height: 1,
-    backgroundColor: '#CDC5C5',
+    backgroundColor: NEUTRAL80,
   },
 
   //h
   h1: {
-    color: '#372F2F',
+    color: NEUTRAL20,
     fontSize: 22,
-    fontWeight: '500',
+    fontFamily: 'PlusJakartaSans-Bold',
+  },
+  h2: {
+    color: NEUTRAL20,
+    fontSize: 16,
+    fontFamily: 'PlusJakartaSans-SemiBold',
   },
   header: {
     // backgroundColor: 'grey',
-    flexDirection: 'row',
+    // flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingTop: 12,
+    paddingTop: '7%',
   },
 
   //i
@@ -153,21 +176,16 @@ const styles = StyleSheet.create({
   section: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: -1,
+    // marginTop: -1,
     // backgroundColor: 'red',
-    paddingTop: 10,
+    // paddingTop: 10,
     flexDirection: 'row',
 
   },
-  sectionLeft: {
-    
-  },
-  sectionRight: {
-
-  },
   subtitle: {
-    color: '#7D7676',
+    color: NEUTRAL50,
     fontSize: 14,
+    fontFamily: 'PlusJakartaSans-Regular',
   },
   subtitleActive: {
     fontSize: 16,

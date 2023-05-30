@@ -15,7 +15,7 @@ import {
 import { PRIMARY50, NEUTRAL20, NEUTRAL50 } from '../../styles/color';
 
 
-export default function Login({navigation}) {
+export default function Login({ navigation }) {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -71,10 +71,9 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 30,
     width: '80%',
-    height: 40,
     backgroundColor: PRIMARY50,
-    borderRadius: 20,
-    padding: 10,
+    borderRadius: 50,
+    paddingVertical: 12,
   },
   buttonText: {
     color: '#fff',
@@ -86,7 +85,7 @@ const styles = StyleSheet.create({
   // c
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'white',
   },
   containerContent: {
     flex: 1,
@@ -105,7 +104,6 @@ const styles = StyleSheet.create({
   //h
   h1: {
     width: '80%',
-    color: '#372F2F',
     fontSize: 22,
     marginBottom: 12,
     fontFamily: "PlusJakartaSans-Bold",
@@ -115,10 +113,7 @@ const styles = StyleSheet.create({
   // i
   inner: {
     flex: 1,
-    // justifyContent: 'space-around',
     justifyContent: 'center',
-    // backgroundColor: 'blue'
-
   },
   input: {
     backgroundColor: 'white',
